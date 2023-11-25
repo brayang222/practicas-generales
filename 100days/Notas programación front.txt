@@ -1,0 +1,74 @@
+-----------------------------------HTML-------------------------
+filter:blur(2px); -- sirve para añadir un desenfoque
+overflow:hidden; -- por si colapsa la estructura con un media query y añade barra de nav
+object-fit: cover; -- acomoda el espacio de las imágenes para que no se vea distorcionado
+loading="lazy"-- atributo de img para que las imágenes carguen cuando se necesita
+radial-gradient(circle closest-corner at 15% 15%, --pone un circulo radial superior izq
+
+----------------------------------JavaScript-------------------------------
+myObj.hasOwnProperty() - busca si en un objeto hay una propiedad específica
+
+
+toUpperCase() = para convertir una cadena a mayúsculas
+split() = para dividir una cadena en un arreglo de subcadenas
+charAt(0) = para obtener la primera letra de cada palabra y convertirla a mayúscula
+join()  para unir las palabras de un arreglo en una sola cadena:
+splice() para insertar elementos en un arreglo en una posición específica, el primer parámetro es el índice al que entra
+el segundo, el índice de elementos que eliminará y el tercero el parámetro a insertar
+slice() para copiar el arreglo
+filter() itera sobre cada elemento del arreglo original
+sort() esta función modifica el arreglo original y lo ordena en orden ascendente (de menor a mayor) de acuerdo al valor de cada elemento
+every() es útil cuando necesitamos verificar si un grupo de condiciones es cierto para todos los elementos de un arreglo
+some() es util caudno necesitamos verificar si al menos una condición de un grupo de condiciones es cierta.
+Number.isInteger() Busca si un número es entero, descarta doubles
+.trim() Elimina los espacios en blanco, no afecta al valor
+includes() determina si una matriz incluye un determinado elemento, devuelve true o false según corresponda.
+Object.keys() devuelve un array de las propiedades names de un objeto, en el mismo orden como se obtienen en un loop normal
+match()  devuelve todas las ocurrencias de una expresión regular dentro de una cadena.
+substring() método devuelve un subconjunto de un objeto 
+new regExp() se utiliza para coinicidir un texto con un patrón
+test() ejecuta la búsqueda de una ocurrencia entre una expresión regular y una cadena especificada. Devuelve true o false.
+flat() crea una nueva matriz con todos los elementos de sub-array concatenados recursivamente hasta la profundidad especificada.
+es decir, desestructura los arrays según la necesidad
+arguments = es un objeto similar a Array accesible dentro de funciones que contiene los valores de los argumentos pasados a esa función.
+set() = Almacena argumentos únicos
+
+
+Notas:
+- Los arrays y los objetos son opciones de referencia, es decir, si muto el original
+me mutará la copia también, siendo esto un arma de doble filo.
+- Los arrays se comportan como objetos, pero no deben ser utilizados como tal
+debido a problemas de interpretación
+
+
+en expresiones regulares:
+Coincidencias Basicas
+.       - Cualquier Caracter, excepto nueva linea
+\d      - Cualquier Digitos (0-9)
+\D      - No es un Digito (0-9)
+\w      - Caracter de Palabra (a-z, A-Z, 0-9, _)
+\W      - No es un Caracter de Palabra.
+\s      - Espacios de cualquier tipo. (espacio, tab, nueva linea)
+\S      - No es un Espacio, Tab o nueva linea.
+
+Limites
+\b      - Limite de Palabra
+\B      - No es un Limite de Palabra
+^       - Inicio de una cadena de texto
+$       - Final de una cadena de texto
+
+Cuantificadores:
+*       - 0 o Más
++       - 1 o Más
+?       - 0 o Uno
+{3}     - Numero Exacto
+{3,4}   - Rango de Numeros (Minimo, Maximo)
+
+Conjuntos de Caracteres
+[]      - Caracteres dentro de los brackets
+[^ ]    - Caracteres que NO ESTAN dentro de los brackets
+
+Grupos
+( )     - Grupo
+|       - Uno u otro
+?= para hacer coincidir una cadena seguida de una subcadena específica

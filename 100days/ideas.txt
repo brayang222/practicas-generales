@@ -1,0 +1,4 @@
+a:active 
+
+que cuando active el button, se cargue una barrita 
+de colores alrededor y después la propiedad

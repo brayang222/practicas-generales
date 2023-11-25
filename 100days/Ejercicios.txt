@@ -1,0 +1,223 @@
+		PARA PASAR LAS PRIMERAS LETRAS A MAYUS
+
+
+function titleCase(str) {
+  const words = str.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+  }
+  return words.join(" ");
+}
+
+	PARA COLOCAR UN ARRAY DENTRO DE OTRO SEGUN UN INDICE
+
+
+function frankenSplice(arr1, arr2, n) {
+  const mover = arr2.slice();
+  for (let i = 0; i < arr1.length; i++){
+    mover.splice(n + i, 0, arr1[i])
+  }
+ return mover;
+}
+
+		PARA QUITAR LOS VALORES FALSOS
+
+function bouncer(arr) {
+  return arr.filter(Boolean)
+}
+
+               PARA SABER DONDE DEBBE IR UN NUMERO ESPECIFICO
+
+function getIndexToIns(arr, num) {
+ arr.sort();
+  return arr.filter(value => num > value).length;
+}
+
+	PARA SABER SI UN ARRAY TIENE LAS MISMAS LETRAS QUE EL OTRO
+
+function mutation(arr) {
+  const first = arr[0].toLowerCase();
+  const second = arr[1].toLowerCase();
+
+
+  return second.split('').every(function(caso){
+    return first.includes(caso)
+  });
+}
+
+
+   PARA BUSCAR UNA PELíCULA CON CARACTERÍSTICAS ESPECÍFICAS
+
+const ratings = watchList.map(item => ({
+  title: item["Title"],
+  rating: item["imdbRating"]
+})); ----------- Este cod busca el título y el ranking en una variedad de propiedades
+
+-----------
+const filteredList = watchList.filter(rating => rating["imdbRating"] >= 8.0).map(item => ({
+  title: item["Title"],
+  rating: item["imdbRating"]
+}));
+------------ Este código hace lo mismo que el de arriba pero filtrando una característica de la propiedad
+   EJEMPLO DE MAP CON UN FOR
+
+
+Array.prototype.myMap = function(callback) {
+  const newArray = [];
+  for(let i = 0; i < this.length; i++){
+    newArray.push(callback(this[i], i, this))
+  }
+  return newArray;
+};
+
+
+ESTE CÓDIGO BUSCA SI CONTIENE NÚMEROS REALES Y SACA EL CUADRADO DE LOS QUE SÍ
+const squareList = arr => {
+  const enteros = arr.filter(num => num > 0 && Number.isInteger(num));
+  const cuadrado = enteros.map(num => num * num);
+  return cuadrado;
+};
+
+
+----------------------ALGORITMOS NIVEL INTERMEDIO-----------------------------------------
+
+Este código devuelve la sima de dos números más la suma de todos los números entre ellos
+
+function sumAll(arr) {
+  arr.sort((a, b) => a - b);
+
+  let num1 = arr[0];
+  let num2 = arr[1];
+  let sum = 0;
+  for (let i = num1; i <= num2; i++){
+    sum += i
+  }
+ return sum;
+}
+
+ESTE CÓDIGO BUSCA SI HAY DIFERENCIAS ENTRE DOS ARRAYS Y MUESTRA CUÁL ES
+
+function diffArray(arr1, arr2) {
+  
+  return arr1
+  .concat(arr2)
+  .filter(item => !arr1.includes(item) || !arr2.includes(item))
+}
+
+SPINAL CASE
+
+function spinalCase(str) {
+  return str
+         .split(/\s|_|(?=[A-Z])/)
+         .join("-")
+         .toLowerCase()      
+}
+
+
+Pig Latin
+
+function translatePigLatin(str) {
+  if (str.match(/^[aeiou]/)) return str + "way"
+
+  const consonant = str.match(/^[^aeiou]+/)[0];
+  return str.substring(consonant.length) + consonant + "ay"
+}
+
+replace
+
+let er = /(\w+)\s(\w+)/
+let str = 'John Smith'
+let newstr = str.replace(er, '$2, $1')
+console.log(newstr)
+
+---En el texto de reemplazo, el script usa $1 y $2 para indicar los 
+resultados de los correspondientes paréntesis coincidentes en el patrón
+ de expresión regular.
+
+
+Para cambiar una palabra y si de por sí está en mayúsucula, la devuelve también
+
+function myReplace(str, before, after) {
+   return str.replace(before, () => before[0] == before[0].toUpperCase() ? 
+      after.replace(after[0], after[0].toUpperCase()) : after);
+}  --- éste no lo devuelve si el after está en mayus
+------- OTRA MANERA DE HACERLO MÁS SENCILLO
+function myReplace(str, before, after) {
+
+ if(before[0] === before[0].toUpperCase()){
+   after = after.replace(after[0], after[0].toUpperCase())
+    return str.replace(before, after)
+ } 
+ else if (before[0] === before[0].toLowerCase()){
+   after = after.replace(after[0], after[0].toLowerCase())
+ }
+  return str.replace(before, after)
+}
+
+
+DEVUELVE LA LETRA QUE FALTA DE LA CADENA
+
+function fearNotLetter(str) {
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i + 1) - str.charCodeAt(i) > 1) {
+            return String.fromCharCode(str.charCodeAt(i) + 1);
+        }
+    }
+}
+
+
+FUNCIÓN QUE BUSCA SI UN NÚMERO YA EXISTE EN EL ARREGLO CREANDO UNO NUEVO CON LOS ÚNICOS
+
+function uniteUnique(...arr) {
+  const unique = []
+
+  for (let i = 0; i < arr.length; i++){
+    for(let j = 0; j < arr[i].length; j++){
+      if (!unique.includes(arr[i][j])){
+          unique.push(arr[i][j])
+      }
+    }
+  }
+  return unique;
+}
+-------------------------OTRA MANERA
+
+function uniteUnique(...arr) {
+
+  const values = arr.flat();
+  const unique = [...new Set(values)]
+  return unique;
+}
+
+-----------------------------IMPLEMENTANDO AMBOS 
+  const unique = []
+  const values = arr.flat()
+  console.log(values)
+  for (let i = 0; i < values.length; i++){
+      if (!unique.includes(values[i])){
+          unique.push(values[i])
+      }
+  }
+  return unique;
+}
+
+
+CONVIERTE ENTIDADES EN HTML
+
+function convertHTML(str) {
+  const  html = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&apos;"
+    }
+  return str
+         .split("")
+         .map(item => html[item] || item)
+         .join("");
+  
+}  ------esta función es útil en cualquier situación en la que necesites 
+mostrar o guardar una cadena de texto que pueda contener caracteres 
+especiales, para asegurarte de que se muestren correctamente y de manera 
+segura.

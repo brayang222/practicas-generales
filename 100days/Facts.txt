@@ -1,0 +1,10 @@
+NO TE REPITAS (Don't Repeat Yourself "DRY")
+La razón por la que el código repetido es un problema es porque 
+cualquier tipo de cambio requiere corregir código en múltiples lugares. 
+Esto suele significar más trabajo para los programadores y más espacio 
+para errores.
+
+LA MEJOR MANERA DE PROGRAMAR
+Es no mutando las cosas tal y como son originalmente, mejor utilizar una
+función con parámetros para guardar y modificar copias del original o
+creando variables con los mismos parámetros que el original.
